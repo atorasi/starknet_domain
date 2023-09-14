@@ -2,7 +2,8 @@ STARKNET_RPC = "https://starknet-mainnet.public.blastapi.io"
 
 
 
-
+SLEEP_ACCS_MIN = 10
+SLEEP_ACCS_MAX = 100
 
 
 
