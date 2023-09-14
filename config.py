@@ -1,7 +1,7 @@
-ETHER_RPC = 'https://eth-mainnet.public.blastapi.io'
-STARKNET_RPC = "https://starknet-mainnet.public.blastapi.io"
+ETHER_RPC = 'https://eth-mainnet.public.blastapi.io'              #Старк нода
+STARKNET_RPC = "https://starknet-mainnet.public.blastapi.io"      #Нода эфира
 
-NEED_GAS = 100
+NEED_GAS = 100            # Ниже какого газа начинать работу
 
 SLEEP = True              # Спать между аккаунтами? True/False, Да/Нет.
 SLEEP_ACCS_MIN = 10       # Минимум секунд
