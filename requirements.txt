@@ -1,1 +1,2 @@
-
+loguru==0.7.0
+starknet-py==0.17.1
