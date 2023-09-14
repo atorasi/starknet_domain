@@ -1,0 +1,669 @@
+[
+    {
+      "name": "DomainData",
+      "size": 6,
+      "type": "struct",
+      "members": [
+        {
+          "name": "owner",
+          "type": "felt",
+          "offset": 0
+        },
+        {
+          "name": "resolver",
+          "type": "felt",
+          "offset": 1
+        },
+        {
+          "name": "address",
+          "type": "felt",
+          "offset": 2
+        },
+        {
+          "name": "expiry",
+          "type": "felt",
+          "offset": 3
+        },
+        {
+          "name": "key",
+          "type": "felt",
+          "offset": 4
+        },
+        {
+          "name": "parent_key",
+          "type": "felt",
+          "offset": 5
+        }
+      ]
+    },
+    {
+      "name": "Uint256",
+      "size": 2,
+      "type": "struct",
+      "members": [
+        {
+          "name": "low",
+          "type": "felt",
+          "offset": 0
+        },
+        {
+          "name": "high",
+          "type": "felt",
+          "offset": 1
+        }
+      ]
+    },
+    {
+      "name": "Discount",
+      "size": 7,
+      "type": "struct",
+      "members": [
+        {
+          "name": "domain_len_range",
+          "type": "(felt, felt)",
+          "offset": 0
+        },
+        {
+          "name": "days_range",
+          "type": "(felt, felt)",
+          "offset": 2
+        },
+        {
+          "name": "timestamp_range",
+          "type": "(felt, felt)",
+          "offset": 4
+        },
+        {
+          "name": "amount",
+          "type": "felt",
+          "offset": 6
+        }
+      ]
+    },
+    {
+      "data": [
+        {
+          "name": "implementation",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "Upgraded",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "previousAdmin",
+          "type": "felt"
+        },
+        {
+          "name": "newAdmin",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "AdminChanged",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        },
+        {
+          "name": "address",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "domain_to_addr_update",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        },
+        {
+          "name": "resolver",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "domain_to_resolver_update",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "address",
+          "type": "felt"
+        },
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        }
+      ],
+      "keys": [],
+      "name": "addr_to_domain_update",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        },
+        {
+          "name": "prev_owner",
+          "type": "felt"
+        },
+        {
+          "name": "new_owner",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "domain_transfer",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        },
+        {
+          "name": "owner",
+          "type": "felt"
+        },
+        {
+          "name": "expiry",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "starknet_id_update",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        }
+      ],
+      "keys": [],
+      "name": "reset_subdomains_update",
+      "type": "event"
+    },
+    {
+      "data": [
+        {
+          "name": "domain",
+          "type": "felt"
+        },
+        {
+          "name": "metadata",
+          "type": "felt"
+        }
+      ],
+      "keys": [],
+      "name": "SaleMetadata",
+      "type": "event"
+    },
+    {
+      "name": "initializer",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "starknetid_contract_addr",
+          "type": "felt"
+        },
+        {
+          "name": "pricing_contract_addr",
+          "type": "felt"
+        },
+        {
+          "name": "admin",
+          "type": "felt"
+        },
+        {
+          "name": "l1_contract",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "domain_to_address",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "address",
+          "type": "felt"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "domain_to_expiry",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "expiry",
+          "type": "felt"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "domain_to_data",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "DomainData"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "address_to_domain",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "address",
+          "type": "felt"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "domain_to_token_id",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "owner",
+          "type": "felt"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "name": "set_domain_to_address",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        },
+        {
+          "name": "address",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "set_domain_to_resolver",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        },
+        {
+          "name": "resolver",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "set_address_to_domain",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "book_domain",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain_hash",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "buy",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "token_id",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt"
+        },
+        {
+          "name": "days",
+          "type": "felt"
+        },
+        {
+          "name": "resolver",
+          "type": "felt"
+        },
+        {
+          "name": "address",
+          "type": "felt"
+        },
+        {
+          "name": "sponsor",
+          "type": "felt"
+        },
+        {
+          "name": "metadata",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "buy_discounted",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "token_id",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt"
+        },
+        {
+          "name": "days",
+          "type": "felt"
+        },
+        {
+          "name": "resolver",
+          "type": "felt"
+        },
+        {
+          "name": "address",
+          "type": "felt"
+        },
+        {
+          "name": "discount_id",
+          "type": "felt"
+        },
+        {
+          "name": "metadata",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "renew",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain",
+          "type": "felt"
+        },
+        {
+          "name": "days",
+          "type": "felt"
+        },
+        {
+          "name": "sponsor",
+          "type": "felt"
+        },
+        {
+          "name": "discount_id",
+          "type": "felt"
+        },
+        {
+          "name": "metadata",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "transfer_domain",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        },
+        {
+          "name": "target_token_id",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "reset_subdomains",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "set_admin",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "address",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "set_domain_owner",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "domain_len",
+          "type": "felt"
+        },
+        {
+          "name": "domain",
+          "type": "felt*"
+        },
+        {
+          "name": "token_id",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "set_pricing_contract",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "address",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "transfer_balance",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "erc20",
+          "type": "felt"
+        },
+        {
+          "name": "amount",
+          "type": "Uint256"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "write_discount",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "discount_id",
+          "type": "felt"
+        },
+        {
+          "name": "discount",
+          "type": "Discount"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "set_l1_contract",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "l1_contract",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "set_referral_contract",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "address",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "upgrade",
+      "type": "function",
+      "inputs": [
+        {
+          "name": "new_implementation",
+          "type": "felt"
+        }
+      ],
+      "outputs": []
+    }
+  ]
