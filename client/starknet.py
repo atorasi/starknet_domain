@@ -9,7 +9,7 @@ from starknet_py.net.signer.stark_curve_signer import KeyPair
 from starknet_py.contract import Contract
 
 from utils import script_exceptions, logger, abi_read
-from config import STARKNET_RPC
+from config import STARKNET_RPC, SLEEP_ACCS_MIN, SLEEP_ACCS_MAX, SLEEP
 
 
 class StarkNet:
@@ -93,3 +93,6 @@ class StarkNet:
         
         logger.info(f'Acc.{self.index} : Transaction Was Sent. Waiting Confirmation')
         await self.send_calls_transaction(calls=calls, wait=False)
+        if SLEEP:
+            await asyncio.sleep(random.randint(SLEEP_ACCS_MIN, SLEEP_ACCS_MAX))
+            
