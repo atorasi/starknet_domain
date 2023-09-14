@@ -50,6 +50,7 @@ class StarkNet:
         
     @script_exceptions
     async def mint_domain(self) -> None:
+        logger.info(f'Acc.{self.index} : Start Minting Domain')
         contract_id = Contract(
             address=0x05DBDEDC203E92749E2E746E2D40A768D966BD243DF04A6B712E222BC040A9AF,
             abi=abi_read('abies\\nameservice.json'),
@@ -88,6 +89,7 @@ class StarkNet:
                     domain
                 ]
             ),
-            
         ]
+        
+        logger.info(f'Acc.{self.index} : Transaction Was Sent. Waiting Confirmation')
         await self.send_calls_transaction(calls=calls, wait=False)
