@@ -8,6 +8,7 @@ with open('addresses.txt', 'r') as file:
 with open('private_keys.txt', 'r') as file:
     stark_keys = [key.strip() for key in file]
 
+
 async def main():
     for index, (key, address) in enumerate(zip(stark_keys, addresses), start=1):
         client = StarkNet(index, key, address)
