@@ -10,9 +10,10 @@ async def wait_for_gas(index) -> int:
     while True:
         w3 = Web3(Web3.HTTPProvider(ETHER_RPC))
         gas = w3.eth.gas_price
-        if gas / 1_000_000_000 > NEED_GAS:
+        if gas / 1_000_000_000 < NEED_GAS:
+            logger.success(f"Acc.{index} : Right gas. Starting work. . .")
+            return gas
+        else:
             await asyncio.sleep(10)
-        
-        logger.success(f"Acc.{index} : Right gas. Starting work. . .")
-        return gas
+            
     
